@@ -1,0 +1,54 @@
+{
+  "name": "mearch",
+  "version": "1.0.0",
+  "description": "Music Search and Download",
+  "main": "electron-main.cjs",
+  "type": "module",
+  "scripts": {
+    "server": "node server/server.js",
+    "client": "vite",
+    "client:build": "vite build",
+    "electron:start": "cross-env NODE_ENV=development electron .",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,VITE,ELECTRON\" -c \"yellow,blue,green\" \"npm run server\" \"npm run client\" \"npx wait-on http://127.0.0.1:5173 --timeout 60000 && npm run electron:start\"",
+    "build": "npm run client:build && electron-builder",
+    "build:win": "npm run client:build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.mearch.app",
+    "productName": "Mearch",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**/*",
+      "server/**/*",
+      "electron-main.cjs",
+      "package.json",
+      "img/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "img/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "asar": true
+  },
+  "keywords": [],
+  "author": "musdev13",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.6",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^41.0.3",
+    "electron-builder": "^26.8.1",
+    "vite": "^8.0.2",
+    "wait-on": "^7.2.0"
+  }
+}
