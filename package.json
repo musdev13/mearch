@@ -9,9 +9,10 @@
     "client": "vite",
     "client:build": "vite build",
     "electron:start": "cross-env NODE_ENV=development electron .",
-    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,VITE,ELECTRON\" -c \"yellow,blue,green\" \"npm run server\" \"npm run client\" \"npx wait-on http://127.0.0.1:5173 --timeout 60000 && npm run electron:start\"",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,VITE,ELECTRON\" -c \"yellow,blue,green\" \"npm run server\" \"npm run client\" \"wait-on http://127.0.0.1:5173 && npm run electron:start\"",
     "build": "npm run client:build && electron-builder",
-    "build:win": "npm run client:build && electron-builder --win"
+    "build:win": "npm run client:build && electron-builder --win",
+    "postinstall": "electron-builder install-app-deps"
   },
   "build": {
     "appId": "com.mearch.app",
@@ -46,9 +47,9 @@
   "devDependencies": {
     "concurrently": "^9.2.1",
     "cross-env": "^7.0.3",
-    "electron": "^41.0.3",
-    "electron-builder": "^26.8.1",
-    "vite": "^8.0.2",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.0.0",
     "wait-on": "^7.2.0"
   }
 }
