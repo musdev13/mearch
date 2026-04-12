@@ -12,6 +12,7 @@ export function showTrackList(tracks) {
             <div class="info">
                 <h3>${track.title}</h3>
                 <h4>${track.artist}</h4>
+                <h5 style="display: none;">${track.cover_bigger}</h5>
             </div>
         </div>
     `).join('');

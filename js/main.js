@@ -38,8 +38,9 @@ trackListContainer.addEventListener('click', async (event) => {
         hint.style.display = 'block';
         const title = item.querySelector('h3').innerHTML;
         const artist = item.querySelector('h4').innerHTML;
+        const cover = item.querySelector('h5').innerHTML;
         hint.innerHTML = `downloading ${title} - ${artist}`;
-        const fileUrl = await downloadTrack(title, artist);
+        const fileUrl = await downloadTrack(title, artist, cover);
         console.log(fileUrl);
         downloadMP3(fileUrl, `${title} - ${artist}.mp3`)
         hint.style.display = 'none';

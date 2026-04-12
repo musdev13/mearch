@@ -1,7 +1,7 @@
-export async function downloadTrack(title, artist) {
+export async function downloadTrack(title, artist, cover) {
     const SERVER_URL = 'http://localhost:4355';
     
-    const params = new URLSearchParams({ title, artist });
+    const params = new URLSearchParams({ title, artist, cover });
 
     try {
         const response = await fetch(`${SERVER_URL}/api/getTrack?${params.toString()}`);

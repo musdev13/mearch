@@ -8,7 +8,8 @@ export function parseTracks(data){
         trackList.push({
             title: el.name,
             artist: artist,
-            cover: el.album.images[1]?.url
+            cover: el.album.images[1]?.url,
+            cover_bigger: el.album.images[0]?.url
         });
     });
 

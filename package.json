@@ -40,9 +40,10 @@
   "author": "musdev13",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.13.6",
+    "axios": "^1.15.0",
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "node-id3": "^0.2.9"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
